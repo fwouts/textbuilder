@@ -1,6 +1,9 @@
 {
   "name": "textbuilder",
-  "version": "1.0.0",
+  "version": "1.0.2",
+  "main": "./dist/textbuilder.js",
+  "types": "./dist/textbuilder.d.js",
+  "files": ["dist"],
   "scripts": {
     "build": "rimraf dist && tsc",
     "test": "mocha --opts mocha.opts && rm -rf test",
@@ -13,6 +16,7 @@
     "@types/mocha": "^2.2.41",
     "chai": "^4.1.1",
     "mocha": "^3.5.0",
+    "rimraf": "^2.6.1",
     "ts-node": "^3.3.0",
     "typescript": "^2.4.2"
   },
