@@ -1,0 +1,20 @@
+{
+  "name": "textbuilder",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "test": "mocha --opts mocha.opts && rm -rf test",
+    "test:live": "nodemon -e ts --exec 'time npm run test || exit 1'"
+  },
+  "author": "Francois Wouts",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chai": "^4.0.2",
+    "@types/mocha": "^2.2.41",
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.4.2"
+  },
+  "dependencies": {}
+}
