@@ -1,5 +1,7 @@
 # TextBuilder
 
+![Circle CI status](https://circleci.com/gh/fwouts/textbuilder.svg?&style=shield)
+
 A simple library to output text, with support for intended blocks.
 
 ## Example usage
