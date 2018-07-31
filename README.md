@@ -12,7 +12,7 @@ textBuilder.append('Line 1\n');
 textBuilder.indented(() => {
   textBuilder.append('Indented line 2\n');
 });
-textBuilder.append('Line 3', ' with something ', 'appended');
+textBuilder.append('Line 3');
 console.log(textBuilder.build());
 
 /*

@@ -3,7 +3,7 @@ export default class TextBuilder {
   private _parts: string[] = [];
   private _indentLevel = 0;
 
-  append(...text: string[]) {
+  append(text: string) {
     let incomingTextLength = 0;
     for (let t of text) {
       incomingTextLength += t.length;

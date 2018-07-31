@@ -5,27 +5,18 @@ import TextBuilder from "./textbuilder";
 describe("TextBuilder", () => {
   it("does not get confused with empty text", () => {
     let textBuilder = new TextBuilder();
-    textBuilder.append();
     textBuilder.append("");
-    textBuilder.append("", "");
     expect(textBuilder.build()).to.be.equal("");
 
     textBuilder = new TextBuilder();
     textBuilder.append("abc");
     textBuilder.indented(() => {
-      textBuilder.append();
-      textBuilder.append("", "");
+      textBuilder.append("");
       // There should be no indent or anything, just a line break.
       expect(textBuilder.build()).to.be.equal("abc\n");
-      textBuilder.append("indented", "");
+      textBuilder.append("indented");
     });
     expect(textBuilder.build()).to.be.equal("abc\n  indented\n");
-  });
-
-  it("accepts multiple arguments", () => {
-    let textBuilder = new TextBuilder();
-    textBuilder.append("Hello", ", ", "World", "!", "\n");
-    expect(textBuilder.build()).to.be.equal("Hello, World!\n");
   });
 
   it("breaks lines", () => {
