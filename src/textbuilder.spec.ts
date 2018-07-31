@@ -1,7 +1,6 @@
-import "mocha";
-
-import TextBuilder from "./textbuilder";
 import { expect } from "chai";
+import "mocha";
+import TextBuilder from "./textbuilder";
 
 describe("TextBuilder", () => {
   it("does not get confused with empty text", () => {
