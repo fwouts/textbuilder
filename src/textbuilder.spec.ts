@@ -13,10 +13,10 @@ describe("TextBuilder", () => {
     textBuilder.indented(() => {
       textBuilder.append("");
       // There should be no indent or anything, just a line break.
-      expect(textBuilder.build()).to.be.equal("abc\n");
+      expect(textBuilder.build()).to.be.equal("abc\n  ");
       textBuilder.append("indented");
     });
-    expect(textBuilder.build()).to.be.equal("abc\n  indented\n");
+    expect(textBuilder.build()).to.be.equal("abc\n  indented");
   });
 
   it("breaks lines", () => {
@@ -38,6 +38,22 @@ line 2
 line 3
 
 `
+    );
+  });
+
+  it("keeps indentation when line breaks in the middle", () => {
+    let textBuilder = new TextBuilder();
+    textBuilder.append("A");
+    textBuilder.indented(() => {
+      textBuilder.append("B\nC\nD");
+    });
+    textBuilder.append("E");
+    expect(textBuilder.build()).to.be.equal(
+      `A
+  B
+  C
+  D
+E`
     );
   });
 
