@@ -49,7 +49,14 @@ export default class TextBuilder {
       }
       return indent + block;
     } else {
-      return this.buildBlockList(block, indent + "  ");
+      const text = this.buildBlockList(block, indent + "  ");
+      if (text === null) {
+        return null;
+      }
+      if (text.endsWith("\n")) {
+        return text.substr(0, text.length - 1);
+      }
+      return text;
     }
   }
 

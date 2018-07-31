@@ -96,6 +96,21 @@ World!
     );
   });
 
+  it("removes last line break at the end of indent block", () => {
+    let textBuilder = new TextBuilder();
+    textBuilder.append("Hello,");
+    textBuilder.indented(() => {
+      textBuilder.append("indent\n");
+    });
+    textBuilder.append("World!\n");
+    expect(textBuilder.build()).to.be.equal(
+      `Hello,
+  indent
+World!
+`
+    );
+  });
+
   it("does not create empty blocks when indenting without anything", () => {
     let textBuilder = new TextBuilder();
     textBuilder.append("line 1");
