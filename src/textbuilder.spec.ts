@@ -13,7 +13,7 @@ describe("TextBuilder", () => {
     textBuilder.indented(() => {
       textBuilder.append("");
       // There should be no indent or anything, just a line break.
-      expect(textBuilder.build()).to.be.equal("abc\n  ");
+      expect(textBuilder.build()).to.be.equal("abc\n");
       textBuilder.append("indented");
     });
     expect(textBuilder.build()).to.be.equal("abc\n  indented");
@@ -51,6 +51,24 @@ line 3
     expect(textBuilder.build()).to.be.equal(
       `A
   B
+  C
+  D
+E`
+    );
+  });
+
+  it("removes indentation on empty lines", () => {
+    let textBuilder = new TextBuilder();
+    textBuilder.append("A");
+    textBuilder.indented(() => {
+      textBuilder.append("B\n\n\nC\nD");
+    });
+    textBuilder.append("E");
+    expect(textBuilder.build()).to.be.equal(
+      `A
+  B
+
+
   C
   D
 E`

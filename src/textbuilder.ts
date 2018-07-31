@@ -44,6 +44,9 @@ export default class TextBuilder {
 
   private buildBlock(block: Block, indent: string): string | null {
     if (typeof block === "string") {
+      if (block === "") {
+        return "";
+      }
       return indent + block;
     } else {
       return this.buildBlockList(block, indent + "  ");
