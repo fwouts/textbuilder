@@ -38,10 +38,6 @@ export default class TextBuilder {
     }
   }
 
-  linebreak() {
-    this._parts.push("\n");
-  }
-
   build() {
     return this._parts.join("");
   }
@@ -49,7 +45,7 @@ export default class TextBuilder {
   private _addLinebreakIfNotBeginning() {
     let lastCharacter = this._getLastCharacter();
     if (lastCharacter.length && lastCharacter !== "\n") {
-      this.linebreak();
+      this.append("\n");
     }
   }
 

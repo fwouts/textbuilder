@@ -31,18 +31,13 @@ describe("TextBuilder", () => {
 
   it("breaks lines", () => {
     let textBuilder = new TextBuilder();
-    textBuilder.linebreak();
-    textBuilder.linebreak();
-    textBuilder.append("line 1");
+    textBuilder.append("\n");
+    textBuilder.append("\nline 1");
     textBuilder.append(" continued");
-    textBuilder.linebreak();
-    textBuilder.append("line 2");
-    textBuilder.linebreak();
-    textBuilder.linebreak();
-    textBuilder.linebreak();
-    textBuilder.append("line 3");
-    textBuilder.linebreak();
-    textBuilder.linebreak();
+    textBuilder.append("\n");
+    textBuilder.append("line 2\n\n\n");
+    textBuilder.append("line 3\n");
+    textBuilder.append("\n");
     expect(textBuilder.build()).to.be.equal(
       `
 

@@ -8,11 +8,9 @@ A simple library to output text, with support for intended blocks.
 
 ```
 let textBuilder = new TextBuilder();
-textBuilder.append('Line 1');
-textBuilder.linebreak();
+textBuilder.append('Line 1\n');
 textBuilder.indented(() => {
-  textBuilder.append('Indented line 2');
-  textBuilder.linebreak();
+  textBuilder.append('Indented line 2\n');
 });
 textBuilder.append('Line 3', ' with something ', 'appended');
 console.log(textBuilder.build());
