@@ -1,6 +1,11 @@
 export default class TextBuilder {
   private rootBlockList: BlockList = { blocks: [] };
   private indentLevel = 0;
+  private indentSpace: string;
+
+  constructor(indentSpace = "  ") {
+    this.indentSpace = indentSpace;
+  }
 
   append(text: string) {
     let lines = text.split("\n");
@@ -49,7 +54,7 @@ export default class TextBuilder {
       }
       return indent + block;
     } else {
-      const text = this.buildBlockList(block, indent + "  ");
+      const text = this.buildBlockList(block, indent + this.indentSpace);
       if (text === null) {
         return null;
       }

@@ -3,6 +3,18 @@ import "mocha";
 import TextBuilder from "./textbuilder";
 
 describe("TextBuilder", () => {
+  it("uses customizable indent spacing", () => {
+    let textBuilder = new TextBuilder("\t");
+    textBuilder.append("line 1");
+    textBuilder.indented(() => {
+      textBuilder.append("line 2");
+    });
+    expect(textBuilder.build()).to.be.equal(
+      `line 1
+\tline 2`
+    );
+  });
+
   it("does not get confused with empty text", () => {
     let textBuilder = new TextBuilder();
     textBuilder.append("");
